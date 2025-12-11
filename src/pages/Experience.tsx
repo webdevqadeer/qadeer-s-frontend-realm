@@ -88,44 +88,44 @@ const ExperienceCard = ({ experience, index }: { experience: ExperienceItem; ind
   };
 
   return (
-    <div className="relative pl-8 md:pl-12">
+    <div className="relative pl-6 sm:pl-8 md:pl-12">
       {/* Timeline dot */}
-      <div className="absolute left-0 top-0 w-4 h-4 rounded-full gradient-bg shadow-md z-10" />
+      <div className="absolute left-0 top-0 w-3 h-3 sm:w-4 sm:h-4 rounded-full gradient-bg shadow-md z-10" />
       
       {/* Timeline line */}
       {index < experiences.length - 1 && (
-        <div className="absolute left-[7px] top-4 w-0.5 h-full bg-gradient-to-b from-primary to-primary/20" />
+        <div className="absolute left-[5px] sm:left-[7px] top-4 w-0.5 h-full bg-gradient-to-b from-primary to-primary/20" />
       )}
 
       {/* Card */}
-      <div className="glass-card rounded-xl p-6 hover-lift mb-8">
-        <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
+      <div className="glass-card rounded-xl p-4 sm:p-6 hover-lift mb-6 sm:mb-8">
+        <div className="flex flex-wrap items-start justify-between gap-2 sm:gap-4 mb-3 sm:mb-4">
           <div>
-            <h3 className="text-xl font-semibold text-foreground">{experience.role}</h3>
-            <p className="text-primary font-medium">{experience.company}</p>
+            <h3 className="text-lg sm:text-xl font-semibold text-foreground">{experience.role}</h3>
+            <p className="text-primary font-medium text-sm sm:text-base">{experience.company}</p>
           </div>
-          <span className={`px-3 py-1 rounded-full text-xs font-medium ${typeColors[experience.type]}`}>
+          <span className={`px-2 sm:px-3 py-1 rounded-full text-xs font-medium ${typeColors[experience.type]}`}>
             {typeLabels[experience.type]}
           </span>
         </div>
 
-        <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-4">
+        <div className="flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">
           <span className="flex items-center gap-1">
-            <Calendar className="w-4 h-4" />
+            <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
             {experience.duration}
           </span>
           <span className="flex items-center gap-1">
-            <MapPin className="w-4 h-4" />
+            <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
             {experience.location}
           </span>
         </div>
 
-        <p className="text-muted-foreground mb-4">{experience.description}</p>
+        <p className="text-muted-foreground mb-3 sm:mb-4 text-sm sm:text-base">{experience.description}</p>
 
-        <ul className="space-y-2">
+        <ul className="space-y-1.5 sm:space-y-2">
           {experience.achievements.map((achievement, i) => (
-            <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-              <span className="w-1.5 h-1.5 rounded-full gradient-bg mt-2 shrink-0" />
+            <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-muted-foreground">
+              <span className="w-1.5 h-1.5 rounded-full gradient-bg mt-1.5 sm:mt-2 shrink-0" />
               {achievement}
             </li>
           ))}
@@ -137,20 +137,20 @@ const ExperienceCard = ({ experience, index }: { experience: ExperienceItem; ind
 
 const Experience = () => {
   return (
-    <section className="py-20 lg:py-28 animated-gradient">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section className="py-16 sm:py-20 lg:py-28 animated-gradient">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+        <div className="text-center mb-10 sm:mb-16 animate-fade-in-up">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             My <span className="gradient-text">Experience</span>
           </h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base">
             A timeline of my professional journey and achievements
           </p>
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-10 sm:mb-16">
           {[
             { label: "Years Experience", value: "2+" },
             { label: "Projects Completed", value: "30+" },
@@ -159,11 +159,11 @@ const Experience = () => {
           ].map((stat, index) => (
             <div
               key={stat.label}
-              className="glass-card rounded-xl p-6 text-center animate-fade-in-up"
+              className="glass-card rounded-xl p-4 sm:p-6 text-center animate-fade-in-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <p className="text-3xl md:text-4xl font-bold gradient-text mb-2">{stat.value}</p>
-              <p className="text-sm text-muted-foreground">{stat.label}</p>
+              <p className="text-2xl sm:text-3xl md:text-4xl font-bold gradient-text mb-1 sm:mb-2">{stat.value}</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">{stat.label}</p>
             </div>
           ))}
         </div>

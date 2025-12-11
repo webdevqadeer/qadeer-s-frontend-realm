@@ -90,7 +90,7 @@ const ProjectCard = ({ project, onClick }: { project: Project; onClick: () => vo
       className="group glass-card rounded-xl overflow-hidden hover-lift cursor-pointer"
     >
       {/* Image */}
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-40 sm:h-48 overflow-hidden">
         <img
           src={project.image}
           alt={project.title}
@@ -100,14 +100,14 @@ const ProjectCard = ({ project, onClick }: { project: Project; onClick: () => vo
       </div>
 
       {/* Content */}
-      <div className="p-6 space-y-4">
-        <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+      <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
+        <h3 className="text-lg sm:text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
           {project.title}
         </h3>
-        <p className="text-muted-foreground text-sm line-clamp-2">{project.description}</p>
+        <p className="text-muted-foreground text-xs sm:text-sm line-clamp-2">{project.description}</p>
 
         {/* Tech Stack */}
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2">
           {project.techStack.slice(0, 3).map((tech) => (
             <span
               key={tech}
@@ -218,20 +218,20 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section className="py-20 lg:py-28 bg-background">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section className="py-16 sm:py-20 lg:py-28 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+        <div className="text-center mb-12 sm:mb-16 animate-fade-in-up">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             My <span className="gradient-text">Projects</span>
           </h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base">
             A selection of my recent work. Click on any project to learn more.
           </p>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {projects.map((project, index) => (
             <div
               key={project.id}

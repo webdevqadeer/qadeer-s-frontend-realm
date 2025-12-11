@@ -57,14 +57,14 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-20 lg:py-28 bg-background">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section className="py-16 sm:py-20 lg:py-28 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+        <div className="text-center mb-10 sm:mb-16 animate-fade-in-up">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             What People <span className="gradient-text">Say</span>
           </h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base">
             Feedback from colleagues, mentors, and clients I've had the pleasure to work with
           </p>
         </div>
@@ -73,24 +73,24 @@ const Testimonials = () => {
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             {/* Main testimonial */}
-            <div className="glass-card rounded-2xl p-8 md:p-12 animate-fade-in">
-              <Quote className="w-12 h-12 text-primary/20 mb-6" />
+            <div className="glass-card rounded-2xl p-5 sm:p-8 md:p-12 animate-fade-in">
+              <Quote className="w-8 h-8 sm:w-12 sm:h-12 text-primary/20 mb-4 sm:mb-6" />
               
-              <p className="text-lg md:text-xl text-foreground leading-relaxed mb-8">
+              <p className="text-base sm:text-lg md:text-xl text-foreground leading-relaxed mb-6 sm:mb-8">
                 "{testimonials[currentIndex].content}"
               </p>
 
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3 sm:gap-4">
                 <img
                   src={testimonials[currentIndex].avatar}
                   alt={testimonials[currentIndex].name}
-                  className="w-14 h-14 rounded-full object-cover border-2 border-primary/20"
+                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border-2 border-primary/20"
                 />
                 <div>
-                  <h4 className="font-semibold text-foreground">
+                  <h4 className="font-semibold text-foreground text-sm sm:text-base">
                     {testimonials[currentIndex].name}
                   </h4>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-xs sm:text-sm text-muted-foreground">
                     {testimonials[currentIndex].role} at {testimonials[currentIndex].company}
                   </p>
                 </div>
@@ -98,32 +98,32 @@ const Testimonials = () => {
             </div>
 
             {/* Navigation buttons */}
-            <div className="flex justify-center gap-4 mt-8">
+            <div className="flex justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
               <button
                 onClick={prevTestimonial}
-                className="w-12 h-12 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
                 aria-label="Previous testimonial"
               >
-                <ChevronLeft className="w-5 h-5" />
+                <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
               <button
                 onClick={nextTestimonial}
-                className="w-12 h-12 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
                 aria-label="Next testimonial"
               >
-                <ChevronRight className="w-5 h-5" />
+                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
             </div>
 
             {/* Dots indicator */}
-            <div className="flex justify-center gap-2 mt-6">
+            <div className="flex justify-center gap-2 mt-4 sm:mt-6">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
                     index === currentIndex
-                      ? "w-8 gradient-bg"
+                      ? "w-6 sm:w-8 gradient-bg"
                       : "bg-border hover:bg-muted-foreground"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
@@ -134,29 +134,29 @@ const Testimonials = () => {
         </div>
 
         {/* Grid view for larger screens */}
-        <div className="hidden lg:grid grid-cols-4 gap-6 mt-16">
+        <div className="hidden lg:grid grid-cols-4 gap-4 sm:gap-6 mt-12 sm:mt-16">
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.id}
               onClick={() => setCurrentIndex(index)}
-              className={`glass-card rounded-xl p-6 cursor-pointer transition-all duration-300 ${
+              className={`glass-card rounded-xl p-4 sm:p-6 cursor-pointer transition-all duration-300 ${
                 index === currentIndex
                   ? "ring-2 ring-primary"
                   : "hover:ring-1 hover:ring-border"
               }`}
             >
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-3 mb-3 sm:mb-4">
                 <img
                   src={testimonial.avatar}
                   alt={testimonial.name}
-                  className="w-10 h-10 rounded-full object-cover"
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover"
                 />
                 <div>
                   <h4 className="font-medium text-sm text-foreground">{testimonial.name}</h4>
                   <p className="text-xs text-muted-foreground">{testimonial.role}</p>
                 </div>
               </div>
-              <p className="text-sm text-muted-foreground line-clamp-3">
+              <p className="text-xs sm:text-sm text-muted-foreground line-clamp-3">
                 "{testimonial.content}"
               </p>
             </div>
