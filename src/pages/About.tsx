@@ -1,32 +1,35 @@
-import { GraduationCap, Code, Lightbulb, Target } from "lucide-react";
+import { Mail, Github, Linkedin, MapPin } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import profilePhoto from "@/assets/profile-photo.jpg";
 
 const About = () => {
   const highlights = [
     {
-      icon: GraduationCap,
+      icon: "🎓",
       title: "CS Graduate",
       description: "Bachelor's degree in Computer Science with strong fundamentals",
     },
     {
-      icon: Code,
+      icon: "💻",
       title: "2+ Years Experience",
       description: "Professional frontend development with React and modern tools",
     },
     {
-      icon: Lightbulb,
+      icon: "💡",
       title: "Problem Solver",
       description: "Analytical thinking and creative solutions to complex challenges",
     },
     {
-      icon: Target,
+      icon: "🎯",
       title: "Detail Oriented",
       description: "Pixel-perfect implementations with focus on user experience",
     },
   ];
 
+ 
+
   return (
-    <section className="py-16 sm:py-20 lg:py-28 bg-background">
+    <section className="py-16 sm:py-20 lg:py-28 animated-gradient">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16 animate-fade-in-up">
@@ -38,17 +41,20 @@ const About = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
-          {/* Image */}
-          <div className="flex justify-center animate-slide-in-left">
-            <div className="relative">
-              <div className="absolute inset-0 rounded-2xl gradient-bg blur-2xl opacity-20 scale-105" />
-              <div className="relative w-full max-w-sm sm:max-w-md aspect-square rounded-2xl overflow-hidden border border-border shadow-xl">
-                <img
-                  src={profilePhoto}
-                  alt="Abdul Qadeer"
-                  className="w-full h-full object-cover"
-                />
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 max-w-5xl mx-auto">
+          {/* Profile Image & Links */}
+          <div className="space-y-6 sm:space-y-8 animate-slide-in-left">
+            {/* Image */}
+            <div className="flex justify-center lg:justify-start">
+              <div className="relative">
+                <div className="absolute inset-0 rounded-2xl gradient-bg blur-2xl opacity-20 scale-105" />
+                <div className="relative w-full max-w-sm sm:max-w-md aspect-square rounded-2xl overflow-hidden border border-border shadow-xl">
+                  <img
+                    src={profilePhoto}
+                    alt="Abdul Qadeer"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -75,8 +81,22 @@ const About = () => {
               </p>
             </div>
 
+            {/* Call to Action */}
+            <div className="pt-4">
+              <p className="text-sm sm:text-base font-medium text-foreground mb-4">Want to work together?</p>
+              <a href="/contact">
+                <Button variant="hero" size="lg" className="w-full sm:w-auto">
+                  Get in Touch
+                </Button>
+              </a>
+            </div>
+
             {/* Highlights Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+           
+          </div>
+          
+        </div>
+         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-12">
               {highlights.map((item, index) => (
                 <div
                   key={item.title}
@@ -84,8 +104,8 @@ const About = () => {
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="flex items-start gap-3 sm:gap-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg gradient-bg flex items-center justify-center shrink-0">
-                      <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg gradient-bg flex items-center justify-center shrink-0 text-lg sm:text-xl">
+                      {item.icon}
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground mb-1 text-sm sm:text-base">{item.title}</h3>
@@ -95,8 +115,6 @@ const About = () => {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
       </div>
     </section>
   );

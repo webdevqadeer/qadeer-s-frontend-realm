@@ -202,6 +202,31 @@
   .delay-400 { animation-delay: 400ms; }
   .delay-500 { animation-delay: 500ms; }
   .delay-600 { animation-delay: 600ms; }
+  
+  /* Floating animation */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Slow orbit animation */
+  .animate-orbit-slow {
+    animation: orbit-slow 8s linear infinite;
+  }
+
+  /* Reverse orbit animation */
+  .animate-orbit-reverse {
+    animation: orbit-reverse 12s linear infinite;
+  }
+
+  /* Slow bounce animation */
+  .animate-bounce-slow {
+    animation: bounce-slow 2.5s ease-in-out infinite;
+  }
+
+  /* Slow spin animation */
+  .animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+  }
 }
 
 @keyframes gradient-shift {
@@ -280,6 +305,53 @@
   }
   50% {
     box-shadow: 0 0 40px hsl(217 91% 60% / 0.5);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes orbit-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-reverse {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-15px);
+    opacity: 0.7;
+  }
+}
+
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 

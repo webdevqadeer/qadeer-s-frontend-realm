@@ -77,8 +77,7 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-muted-foreground flex items-center gap-1">
-              © {currentYear} Abdul Qadeer. Made with{" "}
-              <Heart className="w-4 h-4 text-primary fill-primary" /> using React
+              © {currentYear} Abdul Qadeer. 
             </p>
             <p className="text-sm text-muted-foreground">
               Frontend Developer | React Specialist
